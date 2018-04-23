@@ -7,6 +7,7 @@ import org.metafetish.haptic_file_reader.Handlers.FeelVRHandler;
 import org.metafetish.haptic_file_reader.Handlers.FunscriptHandler;
 import org.metafetish.haptic_file_reader.Handlers.KiirooHandler;
 import org.metafetish.haptic_file_reader.Handlers.VirtualRealPornHandler;
+import org.metafetish.haptic_file_reader.Properties.HapticProperties;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,6 +48,7 @@ public abstract class HapticFileHandler {
                     }
                 } catch (IllegalArgumentException e) {
                     // just ignore if there's an error.
+                    //TODO: Make a user defined exception we can ignore?
                     // e.printStackTrace();
                 }
             } catch (InstantiationException | IllegalAccessException e) {
@@ -62,6 +64,7 @@ public abstract class HapticFileHandler {
     }
 
     protected List<HapticCommand> commands = new ArrayList<>();
+    protected HapticProperties properties = null;
     private int lastIndexRetrieved = 0;
     private int lastTimeRetrieved = 0;
 
