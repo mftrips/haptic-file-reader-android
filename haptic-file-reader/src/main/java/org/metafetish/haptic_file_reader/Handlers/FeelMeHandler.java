@@ -18,7 +18,7 @@ public class FeelMeHandler extends HapticFileHandler {
             if (map.get("text") != null) {
                 this.commands = KiirooHandler.parseCommands((String) map.get("text"));
             }
-        } catch (JsonParseException | JsonMappingException e) {
+        } catch (JsonParseException | JsonMappingException | ClassCastException e) {
             throw new IllegalArgumentException("Wrong format");
         } catch (IOException e) {
             e.printStackTrace();

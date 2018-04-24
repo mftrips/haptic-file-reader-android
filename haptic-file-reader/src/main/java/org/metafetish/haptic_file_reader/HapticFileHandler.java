@@ -2,6 +2,7 @@ package org.metafetish.haptic_file_reader;
 
 import org.apache.commons.io.FileUtils;
 import org.metafetish.haptic_file_reader.Commands.HapticCommand;
+import org.metafetish.haptic_file_reader.Handlers.BeatMeterHandler;
 import org.metafetish.haptic_file_reader.Handlers.FeelMeHandler;
 import org.metafetish.haptic_file_reader.Handlers.FeelVRHandler;
 import org.metafetish.haptic_file_reader.Handlers.FunscriptHandler;
@@ -18,6 +19,7 @@ import java.util.List;
 
 public abstract class HapticFileHandler {
     private static List<HapticFileHandler> handlers = new ArrayList<HapticFileHandler>(){{
+        add(new BeatMeterHandler());
         add(new FeelMeHandler());
         add(new FeelVRHandler());
         add(new FunscriptHandler());

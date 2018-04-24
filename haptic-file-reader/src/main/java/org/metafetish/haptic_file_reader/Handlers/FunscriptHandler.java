@@ -34,7 +34,7 @@ public class FunscriptHandler extends HapticFileHandler {
             if (map.actions != null) {
                 this.commands =  Collections.unmodifiableList((List<? extends HapticCommand>) map.actions);
             }
-        } catch (JsonParseException | JsonMappingException e) {
+        } catch (JsonParseException | JsonMappingException | ClassCastException e) {
             throw new IllegalArgumentException("Wrong format");
         } catch (IOException e) {
             e.printStackTrace();

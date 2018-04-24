@@ -15,10 +15,13 @@ public class VorzeHandler extends HapticFileHandler {
         }
         List<HapticCommand> retList = new ArrayList<>();
         for (String line : body.trim().split("\r?\n")) {
-            if (line.trim().isEmpty()) {
+            if (line.trim().isEmpty() || !line.contains(",")) {
                 continue;
             }
             String[] parts = line.trim().split(",");
+            if(parts.length < 3) {
+                continue;
+            }
             int time = Integer.parseInt(parts[0], 10) * 100;
             int direction = Integer.parseInt(parts[1], 10);
             int speed = Integer.parseInt(parts[2], 10);
