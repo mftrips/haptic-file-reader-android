@@ -34,16 +34,22 @@ public abstract class HapticFileHandler {
         }
     }
 
-    private static HapticFileHandler handleString(String string) {
+    public static HapticFileHandler handleString(String string) {
         List<HapticFileHandler> handlers = new ArrayList<>();
         for (HapticFileHandler handler : HapticFileHandler.handlers) {
             try {
-                handler.loadString(string);
-                if (!handler.commands.isEmpty()) {
-                    handlers.add(handler);
+                // make fresh objects to avoid false positives from previous runs
+                handler = handler.getClass().newInstance();
+                try {
+                    handler.loadString(string);
+                    if (!handler.commands.isEmpty()) {
+                        handlers.add(handler);
+                    }
+                } catch (IllegalArgumentException e) {
+                    // just ignore if there's an error.
+                    // e.printStackTrace();
                 }
-            } catch (IllegalArgumentException e) {
-                // just ignore if there's an error.
+            } catch (InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
             }
         }

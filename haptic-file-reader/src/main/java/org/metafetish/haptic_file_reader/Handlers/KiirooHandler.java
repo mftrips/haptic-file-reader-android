@@ -13,6 +13,9 @@ public class KiirooHandler extends HapticFileHandler {
     }
 
     public static List<HapticCommand> parseCommands(String commands, String separator, String keyValueSeparator) {
+        if (commands == null || commands.isEmpty()) {
+            throw new IllegalArgumentException("Invalid Kiiroo file");
+        }
         commands = commands.trim();
 
         // First off, let's make sure this is stringified javascript object
