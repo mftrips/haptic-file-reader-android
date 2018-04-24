@@ -1,6 +1,7 @@
 package org.metafetish.haptic_file_reader.Handlers;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.metafetish.haptic_file_reader.HapticFileHandler;
@@ -17,7 +18,7 @@ public class FeelMeHandler extends HapticFileHandler {
             if (map.get("text") != null) {
                 this.commands = KiirooHandler.parseCommands((String) map.get("text"));
             }
-        } catch (JsonParseException e) {
+        } catch (JsonParseException | JsonMappingException e) {
             throw new IllegalArgumentException("Wrong format");
         } catch (IOException e) {
             e.printStackTrace();

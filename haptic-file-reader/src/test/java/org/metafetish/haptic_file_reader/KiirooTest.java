@@ -7,7 +7,7 @@ import org.metafetish.haptic_file_reader.Commands.KiirooCommand;
 import org.metafetish.haptic_file_reader.Handlers.KiirooHandler;
 
 public class KiirooTest {
-    private static String sample = "var kiiroo_subtitles = {1,4;2.5,5;3.1,0}";
+    private static String sample = "var kiiroo_subtitles = {1,3;2.5,4;3.1,0}";
 
     @Test
     public void test() {
@@ -20,9 +20,9 @@ public class KiirooTest {
             Assert.assertEquals(KiirooCommand.class, command.getClass());
         }
         Assert.assertEquals(1000, handler.commands.get(0).getTime());
-        Assert.assertEquals(4, ((KiirooCommand) handler.commands.get(0)).getPosition());
+        Assert.assertEquals(3, ((KiirooCommand) handler.commands.get(0)).getPosition());
         Assert.assertEquals(2500, handler.commands.get(1).getTime());
-        Assert.assertEquals(5, ((KiirooCommand) handler.commands.get(1)).getPosition());
+        Assert.assertEquals(4, ((KiirooCommand) handler.commands.get(1)).getPosition());
         Assert.assertEquals(3100, handler.commands.get(2).getTime());
         Assert.assertEquals(0, ((KiirooCommand) handler.commands.get(2)).getPosition());
     }

@@ -7,6 +7,7 @@ import org.metafetish.haptic_file_reader.Handlers.FeelVRHandler;
 import org.metafetish.haptic_file_reader.Handlers.FunscriptHandler;
 import org.metafetish.haptic_file_reader.Handlers.KiirooHandler;
 import org.metafetish.haptic_file_reader.Handlers.VirtualRealPornHandler;
+import org.metafetish.haptic_file_reader.Handlers.VorzeHandler;
 import org.metafetish.haptic_file_reader.Properties.HapticProperties;
 
 import java.io.File;
@@ -22,6 +23,7 @@ public abstract class HapticFileHandler {
         add(new FunscriptHandler());
         add(new KiirooHandler());
         add(new VirtualRealPornHandler());
+        add(new VorzeHandler());
     }};
 
     @SuppressWarnings("unused")

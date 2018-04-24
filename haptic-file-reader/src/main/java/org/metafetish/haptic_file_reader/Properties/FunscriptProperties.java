@@ -5,6 +5,17 @@ public class FunscriptProperties extends HapticProperties {
     private int range;
     private boolean inverted;
 
+    @SuppressWarnings("unused")
+    public FunscriptProperties(int range) {
+        this(null, range, false);
+    }
+
+    @SuppressWarnings("unused")
+    public FunscriptProperties(boolean inverted) {
+        this(null, 100, inverted);
+    }
+
+    @SuppressWarnings("unused")
     public FunscriptProperties(int range, boolean inverted) {
         this(null, range, inverted);
     }
