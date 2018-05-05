@@ -83,6 +83,11 @@ public abstract class HapticFileHandler {
     }
 
     @SuppressWarnings("unused")
+    public HapticProperties getProperties() {
+        return this.properties;
+    }
+
+    @SuppressWarnings("unused")
     public HapticCommand getValueNearestTime(int time) {
         // We figure we'll normally be handing out indexes sequentially, while a
         // movie is playing. So always start from our last record returned.
